@@ -124,6 +124,14 @@ if(isset($_POST['keresettNev'])){
     <input type="text"  name="keresettNev">
     <input type="submit"  value="KERES">
 </form>
+
+<form action="upload.php" method="post" enctype="multipart/form-data">
+  Select image to upload:
+  <input type="file" name="fileToUpload" id="fileToUpload">
+  <input type="submit" value="Upload Image" name="submit">
+</form>
+
+<img src="uploads/Capture001.png" alt="Cum" style="width:128px;height:128px;">
     
     <?php
     $magam = array('sorid' => 7, 'mezoNeve' => 'nev4');
