@@ -102,23 +102,6 @@ foreach($osztalyok as $kulcs => $ertek){
     <?php
     echo "<h1>$osztalyok[$osztaly]</h1>";
     ?>
-<?php
-/*
-if(isset($_POST['keresettNev'])){
-    $sql = "SELECT osztalyid FROM szemelyek INNER JOIN sorok 
-    ON (szemelyek.szemelyid = sorok.nev1 
-    OR szemelyek.szemelyid = sorok.nev2 
-    OR szemelyek.szemelyid = sorok.nev3 
-    OR szemelyek.szemelyid = sorok.nev4 
-    OR szemelyek.szemelyid = sorok.nev5) 
-    WHERE nev LIKE '".$_POST['keresettNev']."';";
-
-    if($result = $db->dbSelect($sql)) {
-        $row = $result->fetch_assoc();
-        $osztaly = $row['osztalyid'];
-    }
-}*/
-?>
 
 <form method="post" action="lista.php">
     <input type="text"  name="keresettNev">
@@ -131,7 +114,17 @@ if(isset($_POST['keresettNev'])){
   <input type="submit" value="Upload Image" name="submit">
 </form>
 
-<img src="uploads/Capture001.png" alt="Cum" style="width:128px;height:128px;">
+<?php
+    $files = glob("uploads/*.*");
+    for ($i = 0; $i < count($files); $i++) {
+        $image = $files[$i];
+        //echo basename($image) . "<br />";
+        echo '<img src="' . $image . '" alt="Random image" style="width:10%;height:10%" />';
+    
+    }
+?>
+
+
     
     <?php
     $magam = array('sorid' => 7, 'mezoNeve' => 'nev4');
@@ -163,33 +156,6 @@ if(isset($_POST['keresettNev'])){
         }
         echo"</table>";
     }
-    
-    /*
-    $result = $conn->query($sql);
-
-    if ($result->num_rows > 0){
-        echo '<table>';
-        while($row = $result->fetch_assoc()) {
-           echo "<tr>";
-           echo "<td>".$row['nev1']."</td>\n";
-           echo "<td>".$row['nev2']."</td>\n";
-           echo "<td>".$row['nev3']."</td>\n";
-           echo "<td>".$row['nev4']."</td>\n";
-           echo "<td>".$row['nev5']."</td>\n";
-           echo "</tr>";
-          }
-          echo '</table>';
-        } else {
-          echo "Nincs ilyen osztaly";
-        
-
-    }
-    
-
-
-
-
-*/
     ?>
 
 </body>
