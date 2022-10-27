@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2022. Okt 20. 09:43
+-- Létrehozás ideje: 2022. Okt 27. 13:13
 -- Kiszolgáló verziója: 10.4.24-MariaDB
 -- PHP verzió: 8.1.6
 
@@ -78,43 +78,46 @@ INSERT INTO `sorok` (`sorid`, `nev1`, `nev2`, `nev3`, `nev4`, `nev5`, `osztalyid
 
 CREATE TABLE `szemelyek` (
   `szemelyid` int(11) NOT NULL,
-  `nev` varchar(100) NOT NULL
+  `nev` varchar(100) NOT NULL,
+  `felhasznaloNev` varchar(10) CHARACTER SET latin1 DEFAULT NULL,
+  `jelszo` varchar(32) CHARACTER SET latin1 DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- A tábla adatainak kiíratása `szemelyek`
 --
 
-INSERT INTO `szemelyek` (`szemelyid`, `nev`) VALUES
-(1, 'Bujdi'),
-(2, 'Beni'),
-(3, 'Erik'),
-(4, 'Szabi'),
-(5, 'Zoltán'),
-(6, 'Horváth'),
-(7, 'Korondi'),
-(8, 'Tokrist'),
-(9, 'Iványi'),
-(10, 'Pintér'),
-(11, 'Ede'),
-(12, 'Bicsák'),
-(13, 'Béla'),
-(14, 'Cucu'),
-(15, 'Géza'),
-(16, 'János'),
-(17, 'Beni'),
-(18, 'Kriszitán'),
-(19, 'Szabi'),
-(20, 'Bence'),
-(21, 'Korondi'),
-(22, 'Tokrist'),
-(23, 'Iványi'),
-(24, 'Kristóf'),
-(25, 'Ede'),
-(26, 'Bicsák'),
-(27, 'Cuc'),
-(28, 'Bicsák'),
-(29, 'Cucu');
+INSERT INTO `szemelyek` (`szemelyid`, `nev`, `felhasznaloNev`, `jelszo`) VALUES
+(1, 'Bujdi', NULL, NULL),
+(2, 'Beni', NULL, NULL),
+(3, 'Erik', NULL, NULL),
+(4, 'Szabi', NULL, NULL),
+(5, 'Zoltán', NULL, NULL),
+(6, 'Horváth', NULL, NULL),
+(7, 'Korondi', NULL, NULL),
+(8, 'Tokrist', NULL, NULL),
+(9, 'Iványi', NULL, NULL),
+(10, 'Pintér', NULL, NULL),
+(11, 'Ede', NULL, NULL),
+(12, 'Bicsák', NULL, NULL),
+(13, 'Béla', NULL, NULL),
+(14, 'Cucu', NULL, NULL),
+(15, 'Géza', NULL, NULL),
+(16, 'János', NULL, NULL),
+(17, 'Beni', NULL, NULL),
+(18, 'Kriszitán', NULL, NULL),
+(19, 'Szabi', NULL, NULL),
+(20, 'Bence', NULL, NULL),
+(21, 'Korondi', NULL, NULL),
+(22, 'Tokrist', NULL, NULL),
+(23, 'Iványi', NULL, NULL),
+(24, 'Kristóf', NULL, NULL),
+(25, 'Ede', NULL, NULL),
+(26, 'Bicsák', NULL, NULL),
+(27, 'Cuc', NULL, NULL),
+(28, 'Bicsák', NULL, NULL),
+(29, 'Cucu', NULL, NULL),
+(76, 'Zoltan', 'Zotlan', 'e10adc3949ba59abbe56e057f20f883e');
 
 --
 -- Indexek a kiírt táblákhoz
@@ -160,7 +163,7 @@ ALTER TABLE `sorok`
 -- AUTO_INCREMENT a táblához `szemelyek`
 --
 ALTER TABLE `szemelyek`
-  MODIFY `szemelyid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `szemelyid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 
 --
 -- Megkötések a kiírt táblákhoz
