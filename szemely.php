@@ -50,6 +50,38 @@ class Szemely{
             }
         }
     }
+
+    public function checkLogin($felnev, $jelszo){
+        $sql = "SELECT * FROM szemelyek WHERE felhasznaloNev = '".$_POST['felnev']."'";
+        // van ilyen felhasznalo?
+        if($result = $this->db->dbselect($sql)){
+            if($row = $result->fetch_assoc()){
+
+            
+            //jo ez a jelszo
+                if($row['jelszo'] == md5($jelszo)){
+                    $eredmeny = 2 ;//sikeres belepes
+                    $_SESSION["nev"] = $row['nev'];
+                    $_SESSION["id"] = $row['szemelyid'];
+                }else{
+                    $eredmeny = 1 ;//sikerestelen belepes: Hibas jelszo";
+                }
+
+            }
+
+            }else{
+                $eredmeny = 0; //nincs ilyen felhasznalonev
+            }
+            return $eredmeny;
+
+
+    }
+    
+
+
+
+
+
     }
 
 ?>
