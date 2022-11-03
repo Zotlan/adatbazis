@@ -41,8 +41,8 @@ if(isset($_GET['kilepes'])){
         $target_dir = "uploads/";
         $target_file = $target_dir. $_SESSION['id'].".jpg";
     
-        if (move_uploaded_file($_SESSION['id'].".jpg", $target_file)) {
-                echo "The file ". htmlspecialchars( $_SESSION['id'].".jpg"). " has been uploaded.<br>";
+        if (move_uploaded_file($_FILES["profilkep"]["tmp_name"], $target_file)) {
+                echo "The file ". htmlspecialchars(basename($_FILES["profilkep"]["tmp_name"])). " has been uploaded.<br>";
             } else {
                 echo "Sorry, there was an error uploading your file.<br>";
                 }

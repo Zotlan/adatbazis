@@ -39,9 +39,9 @@
         }
         else{
             ?>
-            <form action="upload.php" method="post" enctype="multipart/form-data">
+            <form action="index.php?action=upload" method="post" enctype="multipart/form-data">
             Please Upload A Profile Picture:
-            <input type="file" name="fileToUpload" id="fileToUpload">
+            <input type="file" name="profilkep" id="fileToUpload">
             <input type="submit" value="Upload Image" name="submit">
             </form>
             <?php
@@ -55,9 +55,6 @@
         <?php
         if(isset($_SESSION['id'])){
             echo '<a href="index.php?action=logout">Log out</a>';
-        }
-        else{
-            echo '<a href="index.php"action=login>Login</a>';
         }
         ?>
     </div>
