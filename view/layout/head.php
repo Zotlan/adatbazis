@@ -8,3 +8,15 @@
 
         <title><?php echo $osztalyok[$osztaly] ?></title>
 </head>
+<body>
+<?php
+    
+    if(isset($_SESSION['id'])){
+        echo "Udv ".$_SESSION['nev']."<br>";
+        echo '<a href="index.php?page=user&action=logout">Log out</a>';
+    }
+    else{
+        echo '<a href="index.php?page=user&action=login">Login</a>';
+    }
+     
+    ?>

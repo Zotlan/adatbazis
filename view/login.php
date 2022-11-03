@@ -1,3 +1,6 @@
+<?php
+include 'view/layout/head.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

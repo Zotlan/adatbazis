@@ -1,20 +1,6 @@
 <?php
-include 'view/layout/head.php'
-?>
-<body>
-    <?php
-    
-    if(isset($_SESSION['id'])){
-        echo "Udv ".$_SESSION['nev']."<br>";
-        echo '<a href="index.php?page=user&action=logout">Log out</a>';
-    }
-    else{
-        echo '<a href="index.php?page=user&action=login">Login</a>';
-    }
-     
-    ?>
+include 'view/layout/head.php';
 
-    <?php
     $kulcs = array_keys($osztalyok);
 
 
@@ -47,10 +33,11 @@ include 'view/layout/head.php'
                     $bg = "background-color: yellow;";
                     }
                 }
+                    if(isset($_SESSION['id'])){
                         if($_SESSION['id'] == $row[$mezoNev]){
                             echo "<td style=\"color:rgb(101, 1, 252);\">".$nev."</td>\n";
     
-                }else{
+                }else
                     echo"<td style=\"$bg\">".$nev."</td>";
                 }
             }
@@ -58,8 +45,6 @@ include 'view/layout/head.php'
         }
         echo"</table>";
     }
-    ?>
-    <?php
         $files = glob("uploads/*.*");
         for ($i = 0; $i < count($files); $i++) {
             $image = $files[$i];
