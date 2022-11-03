@@ -64,7 +64,7 @@ include 'view/layout/head.php'
         for ($i = 0; $i < count($files); $i++) {
             $image = $files[$i];
             //echo basename($image) . "<br />";
-            echo '<img src="' . $image . '" alt="cum" style="height:40%" />';
+            echo '<img src="' . $image . '" alt="cum" style="height:20%" />';
         
         }
     ?>
