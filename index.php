@@ -5,7 +5,8 @@
     require 'dbinc.php';
     $db = new DataBase();
 
-    $page = "user";
+    //$page = "user";
+    $page = "index";
 
     $controllerFile = 'controller/'.$page.'.php';
 

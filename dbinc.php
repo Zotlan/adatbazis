@@ -1,6 +1,4 @@
 <?php
-
-
 class DataBase {
     private $servername = "localhost";
     private $username = "zotlan";

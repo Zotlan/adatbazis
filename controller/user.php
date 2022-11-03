@@ -5,8 +5,6 @@ if(isset($_GET['kilepes'])){
 }
 
     require 'model/szemely.php';
-    $szemely= new Szemely($db);
-
     require 'model/osztaly.php';
 
     $eredmeny = "";
