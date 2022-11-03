@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2022. Okt 27. 13:13
+-- Létrehozás ideje: 2022. Nov 03. 09:34
 -- Kiszolgáló verziója: 10.4.24-MariaDB
 -- PHP verzió: 8.1.6
 
@@ -92,7 +92,7 @@ INSERT INTO `szemelyek` (`szemelyid`, `nev`, `felhasznaloNev`, `jelszo`) VALUES
 (2, 'Beni', NULL, NULL),
 (3, 'Erik', NULL, NULL),
 (4, 'Szabi', NULL, NULL),
-(5, 'Zoltán', NULL, NULL),
+(5, 'Zoltán', 'Zotlan', 'e10adc3949ba59abbe56e057f20f883e'),
 (6, 'Horváth', NULL, NULL),
 (7, 'Korondi', NULL, NULL),
 (8, 'Tokrist', NULL, NULL),
@@ -116,8 +116,7 @@ INSERT INTO `szemelyek` (`szemelyid`, `nev`, `felhasznaloNev`, `jelszo`) VALUES
 (26, 'Bicsák', NULL, NULL),
 (27, 'Cuc', NULL, NULL),
 (28, 'Bicsák', NULL, NULL),
-(29, 'Cucu', NULL, NULL),
-(76, 'Zoltan', 'Zotlan', 'e10adc3949ba59abbe56e057f20f883e');
+(29, 'Cucu', NULL, NULL);
 
 --
 -- Indexek a kiírt táblákhoz
