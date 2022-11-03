@@ -5,6 +5,7 @@ if(isset($_GET['kilepes'])){
 }
 
     require 'model/szemely.php';
+    $szemely= new Szemely($db);
     require 'model/osztaly.php';
 
     $eredmeny = "";
@@ -54,5 +55,5 @@ if(isset($_SESSION['nev'])){
         echo "Greetings, " . $_SESSION['nev'] . "<br>";
 }
 
-    require 'view/user.php';
+    require 'view/login.php';
 ?>

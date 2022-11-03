@@ -28,18 +28,11 @@
     $kulcs = array_keys($osztalyok);
 
 
-    foreach($osztalyok as $kulcs => $ertek){
-        if($kulcs != $osztaly){
-            echo "<h2><a href=\"index.php?osztalynev=$kulcs\">$ertek </a><br></h2>";
-        }
-    }
     echo "<h1>$osztalyok[$osztaly]</h1>";
 
     $sql = "SELECT sorid, nev1, nev2, nev3, nev4, nev5 FROM sorok WHERE osztalyid =".$osztaly;
 
     $result = $db->dbselect($sql);
-    print_r($result);
-    echo $osztaly;
 
     require 'view/index.php';
 

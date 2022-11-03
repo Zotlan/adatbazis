@@ -1,25 +1,17 @@
-<!DOCTYPE html>
-<html lang="hu">
-<head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
-
-        <title><?php echo $osztalyok[$osztaly] ?></title>
-</head>
+<?php
+include 'view/layout/head.php'
+?>
 <body>
     <?php
     
     if(isset($_SESSION['id'])){
         echo "Udv ".$_SESSION['nev']."<br>";
-        echo '<a href="belepes.php?kilepes=1">Kilepes</a>';
+        echo '<a href="index.php?page=user&action=logout">Log out</a>';
     }
     else{
-        echo '<a href="belepes.php">Belepes</a>';
+        echo '<a href="index.php?page=user&action=login">Login</a>';
     }
-    
-    
+     
     ?>
 
     <?php
@@ -28,7 +20,7 @@
 
     foreach($osztalyok as $kulcs => $ertek){
         if($kulcs != $osztaly){
-            echo "<h2><a href=\"index.php?osztalyid=$kulcs\">$ertek </a><br></h2>";
+            echo "<h2><a href=\"index.php?page=index&osztalynev=$kulcs\">$ertek </a><br></h2>";
         }
     }
     ?>
@@ -37,8 +29,6 @@
             <input type="text"  name="keresettNev">
             <input type="submit"  value="KERES">
         </form>
-
-    
     
     <?php
     if ($result){
@@ -77,11 +67,6 @@
             echo '<img src="' . $image . '" alt="cum" style="height:40%" />';
         
         }
-
-        /*if(file_exists("uploads/".$row[$mezoNev].".jpg")){
-            echo "<img src=\"uploads/x.jpg\">";
-        }*/
-
     ?>
 </body>
 </html>
