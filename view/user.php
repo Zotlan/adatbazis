@@ -7,7 +7,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Belepes</title>
+<title>Login</title>
 
 
     <style>
@@ -25,25 +25,24 @@
 
     <?php
 
-    echo $eredmeny;
-
     if(!isset($_SESSION['id'])){
         ?>
             <form action="index.php" method="post">
-            Felhasznalonev: <br>
-            <input type="text" name="felnev" placeholder="Ird be a felhasznaloneved" required><br>
-            Jelszo: <br>
-            <input type="password" name="jelszo" placeholder="Ird be a jelszavad" required"><br>
+            Username: <br>
+            <input type="text" name="felnev" placeholder="Please Enter Your Username" required><br>
+            Password: <br>
+            <input type="password" name="jelszo" placeholder="Please Enter Your Password" required"><br>
             <input type="submit">
-            </form>;
+            <input type="hidden" name="action" value="login">
+            </form>
             <?php
         }
         else{
             ?>
             <form action="upload.php" method="post" enctype="multipart/form-data">
-            Toltson fel profilkepet:
+            Please Upload A Profile Picture:
             <input type="file" name="fileToUpload" id="fileToUpload">
-             <input type="submit" value="Upload Image" name="submit">
+            <input type="submit" value="Upload Image" name="submit">
             </form>
             <?php
         }
@@ -52,7 +51,15 @@
     <hr>
 
     <div style="text-align:center">
-        <a href="index.php">Vissza</a>
+        <a href="index.php">Back to main page<br></a>
+        <?php
+        if(isset($_SESSION['id'])){
+            echo '<a href="index.php?action=logout">Log out</a>';
+        }
+        else{
+            echo '<a href="index.php"action=login>Login</a>';
+        }
+        ?>
     </div>
 
 </body>

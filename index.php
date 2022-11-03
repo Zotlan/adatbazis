@@ -1,12 +1,17 @@
 <?php
 
-$page = "belepes";
+    session_start();
 
-$controllerFile = 'controller/'.$page.'.php';
+    require 'dbinc.php';
+    $db = new DataBase();
 
-if(file_exists($controllerFile)){
-    require $controllerFile;
-}
+    $page = "user";
+
+    $controllerFile = 'controller/'.$page.'.php';
+
+    if(file_exists($controllerFile)){
+        require $controllerFile;
+    }
 
 
 
