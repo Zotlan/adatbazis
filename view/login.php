@@ -61,5 +61,8 @@ include 'view/layout/head.php';
         ?>
     </div>
 
+<?php
+include 'view/layout/footer.php';
+?>
 </body>
 </html>

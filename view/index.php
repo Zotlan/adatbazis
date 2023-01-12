@@ -2,21 +2,21 @@
 include 'view/layout/head.php';
 
     $kulcs = array_keys($osztalyok);
+    ?>
+<?php
 
-
-    foreach($osztalyok as $kulcs => $ertek){
-        if($kulcs != $osztaly){
-            echo "<h2><a href=\"index.php?page=index&osztalynev=$kulcs\">$ertek </a><br></h2>";
+    if(isset($_SESSION['id'])){
+        $files = glob("uploads/*.*");
+        for ($i = 0; $i < count($files); $i++) {
+            $image = $files[$i];
+            //echo basename($image) . "<br />";
+            echo '<img src="' . $image . '" alt="cum" style="height:20%" /><br>';
+        
         }
     }
-    ?>
-
-        <form method="post" action="lista.php">
-            <input type="text"  name="keresettNev">
-            <input type="submit"  value="KERES">
-        </form>
-    
-    <?php
+    if(isset($_SESSION['id'])){
+        echo "Greetings ".$_SESSION['nev']."<br>";
+    }
     if ($result){
         echo '<table>';
         while($row = $result->fetch_assoc()) {
@@ -45,13 +45,7 @@ include 'view/layout/head.php';
         }
         echo"</table>";
     }
-        $files = glob("uploads/*.*");
-        for ($i = 0; $i < count($files); $i++) {
-            $image = $files[$i];
-            //echo basename($image) . "<br />";
-            echo '<img src="' . $image . '" alt="cum" style="height:20%" />';
-        
-        }
     ?>
-</body>
-</html>
+<?php
+include 'view/layout/footer.php';
+?>

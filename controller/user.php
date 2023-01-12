@@ -21,7 +21,7 @@ if(isset($_GET['kilepes'])){
     );
 
     switch ($action){
-        case 'logout';
+        case 'logout':
             session_unset();
             $eredmeny = "Logged out Succesful";
         break;
@@ -36,7 +36,7 @@ if(isset($_GET['kilepes'])){
     }
         break;
     
-        case 'upload';
+        case 'upload':
         $target_dir = "uploads/";
         $target_file = $target_dir. $_SESSION['id'].".jpg";
     
@@ -46,6 +46,21 @@ if(isset($_GET['kilepes'])){
                 echo "Sorry, there was an error uploading your file.<br>";
                 }
         break;
+
+        case 'ajaxkereses':
+                $talalatok = "";
+                if(isset($_GET['keresettNev'])){
+                    if(strlen($_GET['keresettNev']) > 0){
+                        $talalatok = $szemely->nevetKeres($_GET['keresettNev']);
+                    }
+                } 
+                //print_r($talalatok);
+                foreach($talalatok as $key => $val){
+                    echo "<a href=\"index.php?szemelyid=".$key."\" class=\"list-group-item list-group-item-action\">$val</a>";
+                }
+                exit;
+        break;
+
     }
 
     echo $eredmeny . "<br>";
@@ -56,4 +71,3 @@ if(isset($_SESSION['nev'])){
 }
 
     require 'view/login.php';
-?>

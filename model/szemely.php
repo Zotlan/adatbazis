@@ -15,24 +15,31 @@ class Szemely{
     }
 
     public function getNev($szemelyid){
-        $sql = "SELECT nev FROM szemelyek WHERE szemelyid = ".$szemelyid;
-        if($resultnev = $this->db->dbselect($sql)){
-            $szemelysor = $resultnev->fetch_assoc();
-            $this->nev = $szemelysor['nev'];
-            $this->szemelyid = $szemelyid;
+        $stmt = $this->db->conn->prepare ("SELECT nev FROM".$this->db->prefix."_szemelyek WHERE szemelyid = ?");
+        if($stmt->bind_param('i', $szemelyid) === true) {
+            $stmt->execute();
+            if($resultnev = $stmt->get_result()){
+                $szemelysor = $resultnev->fetch_assoc();
+                $this->nev = $szemelysor['nev'];
+                $this->szemelyid = $szemelyid;
+            }
+            return $this->nev;
         }
-        return $this->nev;
     }
 
     public function nevetKeres($szoveg){ 
         $talalatok = array();
         $sql = "SELECT szemelyid,nev FROM szemelyek WHERE nev LIKE '%$szoveg%'";
-        if($result = $this->db->dbselect($sql)){
-            while($row = $result->fetch_assoc()){
-                $talalatok[$row['szemelyid']] = $row['nev'];
+        $stmt = $this->db->conn->prepare("SELECT szemelyid, nev FROM".$this->db->prefix."_szemelyek WHERE nev LIKE ?");
+        if($stmt->bind_param('s', $szoveg) === true) {
+            $stmt->execute();
+            if($result = $stmt->get_result()){
+                while($row = $result->fetch_assoc()){
+                    $talalatok[$row['szemelyid']] = $row['nev'];
+                }
             }
+            return $talalatok;
         }
-        return $talalatok;
     }
 
 
